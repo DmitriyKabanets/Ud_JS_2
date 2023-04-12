@@ -1,0 +1,12 @@
+-----------------------------------------------------------------------------
+Оператори
+
+Пріорітети операторів
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table
+
+Побітові оператори
+https://learn.javascript.ru/bitwise-operators
+
+-----------------------------------------------------------------------------
+Корисне про GIT
+https://githowto.com/ru
