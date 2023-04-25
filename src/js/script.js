@@ -1,73 +1,75 @@
-/* Задание на урок:
 
-1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
-'Сколько фильмов вы уже посмотрели?'
 
-2) Создать объект personalMovieDB и в него поместить такие свойства:
-    - count - сюда передается ответ на первый вопрос
-    - movies - в это свойство поместить пустой объект
-    - actors - тоже поместить пустой объект
-    - genres - сюда поместить пустой массив
-    - privat - в это свойство поместить boolean(логическое) значение false
+const personalMovieDB = {
+    count: '',
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+}
 
-3) Задайте пользователю по два раза вопросы:
-    - 'Один из последних просмотренных фильмов?'
-    - 'На сколько оцените его?'
-Ответы стоит поместить в отдельные переменные
-Записать ответы в объект movies в формате: 
-    movies: {
-        'logan': '8.1'
+let numberOfFilms;
+
+function start(){
+    numberOfFilms = +prompt('Скільки фільмів ви вже подивились?', '');
+
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)){
+        numberOfFilms = +prompt('Скільки фільмів ви вже подивились?', '');
     }
+}
 
-Проверить, чтобы все работало без ошибок в консоли */
+start();    
 
+personalMovieDB.count = numberOfFilms;
 
-// 2.19
+function myFilms (){
+    for (let i = 1; i <= 1; i++) {
+  
+        const a = prompt('Один із останніх переглянутих фільмів', ''),
+              b = prompt('Оцініть цей фільм', '');
+    
+        if (a != '' && b != '' && a != null && b != null && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+            
+        } else {
+            console.log('error');
+            i--;
+        }   
+    }
+}
 
-// const personalMovieDB = {
-//     count: '',
-//     movies: {},
-//     actors: {},
-//     genres: [],
-//     privat: false
-// }
+myFilms();
 
-// personalMovieDB.count = 7;
+function detectPersonalLevel(){
+    if (personalMovieDB.count < 10) {
+        console.log('Переглянуто мало фільмів');
+    } else if(personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+        console.log('Ви класичний глядач');
+    } else {
+     console.log('Ви кіноман')
+    }
+}
 
-// let numberOfFilms = +prompt('Скільки фільмів ви вже подивились?', '');
-
-// personalMovieDB.count = numberOfFilms;
-
-// let a = prompt('Один із останніх переглянутих фільмів', '');
-// let b = +prompt('Оцініть цей фільм', '');
-// let c = prompt('Один із останніх переглянутих фільмів', '');
-// let d = +prompt('Оцініть цей фільм', '');
-
-// personalMovieDB.movies[a] = b;
-// personalMovieDB.movies[c] = d;
+detectPersonalLevel();
 
 // console.log(personalMovieDB);
 
-
-const arr = [3, 5, 8, 16, 20, 23, 50, 70, 88];
-const result = [];
-
-for (let i = 0; i < arr.length; i++) {
-    result[i] = arr[i];
-
+function showMyDB(hidden){
+    if (!hidden){
+        console.log(personalMovieDB);
+    }
 }
 
-console.log(result);
+showMyDB(personalMovieDB.privat);
 
 
+function writeYourGenres(){
+    for(let i = 1; i <= 3; i++){
+        personalMovieDB.genres[i-1] = prompt(`Ваш улюблений жанр ${i}`, '');
 
-const data = [5, 10, 'Shopping', 20, 'Homework'];
-
-console.log(data[0] * 2);
-
-for (let i = 0; i <= data.length; i++) {
-    // if (data[0].typeof === )
-    console.log
+    }
 }
 
+writeYourGenres();
 
+showMyDB();

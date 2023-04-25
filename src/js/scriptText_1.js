@@ -190,6 +190,7 @@ for (let i =1; i <= 3; i++) {
 // **
 // ***
 // ****
+// *****
 
 for (let i = 1; i <= 5; i++) {
     let st = '';
@@ -214,6 +215,29 @@ for (let i = 1; i <= length; i++) {
 
 console.log(result);
 
+// 4. необходимо написать код, который при помощи звездочек (*) в консоли нарисует вот такую фигуру:
+//      *
+//     ***
+//    *****
+//   *******
+//  *********
+
+const lines = 5;
+let result = '';
+
+for (let i = 0; i < lines; i++) {
+    for (let j = 0; j < lines - i; j++) {
+        result += ' ';
+    }
+    for (let k = 1; k <= (i * 2) + 1; k++) {
+        result += 'x'
+    }
+
+    result += '\n';
+}
+
+console.log(result);
+
 
 // запитує кількість рядків трикутника
 let lines = +prompt('Скільки рядків трикітника', '');
@@ -227,8 +251,102 @@ for (let i = 1; i <= lines; i++) {
     console.log(st);
 }
 
+// мітка
+
+first: for (let i = 1; i <= 2; i++) {
+    console.log(`First level ${i}`);
+    for (let j = 1; j <= 2; j++) {
+        console.log(`Second level ${j}`);
+        for (let k = 1; k <= 5; k++) {
+            if (k == 3) continue first;
+            console.log(`Third level ${k}`);
+        }
+    }
+}
 
 
+
+////////////////////////////////
+// Функції
+// function declaration --- можливо спочатку використовувати а потім оголошувати (можливо в кінці коду)
+
+function showMessage(text) {
+    console.log(text);
+    //let num = 20;
+}
+
+showMessage('Hello world');
+
+//
+let result = 0;
+
+function calc(a, b) {
+    return a + b;
+}
+
+result = calc(5, 14);
+
+console.log(result);
+console.log(calc(15, 100));
+
+// function expression --- спочатку оголошується а потім використовуються
+const logger = function() {
+    console.log('Hello');
+};
+
+logger();
+
+// стрілочні функції
+const calc = (a, b) => a + b;
+const calc = (a, b) => { 
+    console.log('sdfsdf');
+    return a + b ;
+};
+
+calc(1, 2);
+
+////////////////////////////////
+// Методи та властивості рядків та чисел
+
+const str = 'Hello World';
+
+// достати символ за індексом в рядку
+console.log(str[1]);
+
+// властивість .length довжина рядка
+console.log(str.length);
+
+// метод перетворення в великий та маленький регістр. Не змінює вихідну строку
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
+
+// метод шукає кусок на рядку і виводить індекс початку. Значення -1 --- незнайдено що шукали
+console.log(str.indexOf('Wo'));
+
+// Вирізання куска
+const str = 'Hello World';
+console.log(str.slice(6, 11));
+console.log(str);
+// буде вирізати з вказаного символа і до кінця
+console.log(str.slice(4));
+// теж вирізає вказаний шматок
+console.log(str.substring(3, 7))
+// вирізає вказаний шмат. 
+// 2-вказую з якого індекса починати, а 4-кількість символів
+console.log(str.substr(2, 4));
+
+// Для роботи з числами в JS є міні бібліотека (Math.)
+const num = 12.47833;
+Math.round(num) // округляє до цілого числа
+
+// метод переводить і іншу систему числення (двійкову, десяткову)
+// при використанні на рядку видасть ціле число за прикладом
+const t = '15.5px';
+console.log(parseInt(t)); // перетворить на 15, число
+
+// строку або число повертає в десятковому значенні
+const t = '15.5px';
+console.log(parseFloat(t)); // перетворить на 15.5, число
 
 
 
